@@ -1,13 +1,3 @@
-<?php
-
-if (isset($_SESSION['melding'])) {
-    echo '<p style="color: red;">' . $_SESSION['melding'] . '</p>';
-    unset($_SESSION['melding']);
-}
-
-
-
-?>
 <div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-md-6">
@@ -19,14 +9,14 @@ if (isset($_SESSION['melding'])) {
           <form action="php/login.php" method="post">
             <div class="form-group">
               <label for="username">Email:</label>
-              <input type="text" class="form-control" id="username" placeholder="Voer uw gebruikersnaam in" name="email">
+              <input type="text" name="email" class="form-control" id="username" placeholder="Voer uw gebruikersnaam in">
             </div>
             <div class="form-group">
               <label for="password">Wachtwoord:</label>
-              <input type="password" class="form-control" id="password" placeholder="Voer uw wachtwoord in" name="password">
+              <input type="password" name="password" class="form-control" id="password" placeholder="Voer uw wachtwoord in">
             </div>
             <button type="submit" class="btn btn-danger btn-block">Login</button>
-
+            
 
           </form>
           <div class="text-center mt-3">

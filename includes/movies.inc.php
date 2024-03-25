@@ -12,26 +12,22 @@ try {
 
     $moviesByGenre = [];
 
-    while ($row = $result->fetch(PDO::FETCH_ASSOC))
-    {
+    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
         $genre = $row['genre_name'];
 
-        if (!isset($moviesByGenre[$genre]))
-        {
+        if (!isset($moviesByGenre[$genre])) {
             $moviesByGenre[$genre] = [];
         }
 
         $moviesByGenre[$genre][] = $row;
     }
 
-    foreach ($moviesByGenre as $genre => $movies)
-    {
+    foreach ($moviesByGenre as $genre => $movies) {
         echo '<div class="container">';
         echo '<h1 class="display-4 text-center">' . htmlspecialchars($genre) . '</h1>';
         echo '<div class="row row-cols-1 row-cols-md-3 g-4">'; 
 
-        foreach ($movies as $movie)
-        {
+        foreach ($movies as $movie) {
             $film_id = $movie['film_id'];
             $movieTitle = $movie['film_title'];
             $description = $movie['description'];
@@ -57,9 +53,7 @@ try {
         echo '</div>'; 
         echo '</div>'; 
     }
-}
-catch (PDOException $e)
-{
+} catch (PDOException $e) {
     echo "Error: " . $e->getMessage();
 }
 ?>
