@@ -52,4 +52,7 @@ if (isset($_POST['register']))
         exit();
     }
 }
+else{
+    echo"no";
+}
 ?>

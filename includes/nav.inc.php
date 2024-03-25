@@ -1,18 +1,15 @@
 <?php
-$menu = array
-(
-    'gast' => array
-    (
+$menu = array(
+    'gast' => array(
         'Home' => 'home',
         'Movies' => 'movies',
+        'login' => 'login',
     ),
-    'gebruiker' => array
-    (
-        'Home' => 'home',
+    'gebruiker' => array(
+        'Home' => 'home',   
         'Movies' => 'movies',
     ),
-    'admin' => array
-    (
+    'admin' => array(
         'Home' => 'home',
         'Movies' => 'movies',
         'zalen' => 'movies',

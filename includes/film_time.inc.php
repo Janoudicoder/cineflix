@@ -28,8 +28,7 @@
   <script>
     var reservedSeats = [];
 
-    function showReservationForm(roomId)
-    {
+    function showReservationForm(roomId) {
       var form = document.getElementById("reservationForm" + roomId);
       form.style.display = "block";
 
@@ -37,8 +36,7 @@
       var seatsDiv = document.getElementById("seats" + roomId);
       seatsDiv.innerHTML = ""; /
 
-      for (var i = 1; i <= availableSeats; i++)
-      {
+      for (var i = 1; i <= availableSeats; i++) {
         var seatButton = document.createElement("button");
         seatButton.innerText = "Stoel " + i;
         seatButton.setAttribute("class", "btn btn-secondary mr-2 mt-2");
@@ -47,25 +45,18 @@
       }
     }
 
-    function reserveSeat(roomId, seatNumber)
-    {
+    function reserveSeat(roomId, seatNumber) {
       var seatIndex = reservedSeats.indexOf(seatNumber);
-      if (seatIndex === -1)
-      {
+      if (seatIndex === -1) {
         reservedSeats.push(seatNumber);
-      }
-      else
-      {
+      } else {
         reservedSeats.splice(seatIndex, 1);
       }
 
       var seatButton = document.getElementById("seats" + roomId).querySelectorAll("button")[seatNumber - 1];
-      if (reservedSeats.includes(seatNumber))
-      {
+      if (reservedSeats.includes(seatNumber)) {
         seatButton.classList.add("reserved");
-      }
-      else
-      {
+      } else {
         seatButton.classList.remove("reserved");
       }
     }
