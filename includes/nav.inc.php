@@ -3,10 +3,10 @@ $menu = array(
     'gast' => array(
         'Home' => 'home',
         'Movies' => 'movies',
-        'login' => 'login',
+        'Movies' => 'login',
     ),
     'gebruiker' => array(
-        'Home' => 'home',   
+        'Home' => 'home',
         'Movies' => 'movies',
     ),
     'admin' => array(

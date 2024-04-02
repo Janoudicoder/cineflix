@@ -2,7 +2,8 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card">
-      
+      <form method="POST" action="php/add_movie.php" enctype="multipart/form-data">
+
         <div class="card-header bg-danger text-white">
           <h3 class="text-center">Film Toevoegen</h3>
         </div>
@@ -57,6 +58,7 @@
           </form>
         </div>
       </div>
+</form>
     </div>
   </div>
 </div>
