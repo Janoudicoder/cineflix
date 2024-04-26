@@ -13,14 +13,12 @@
             <form id="reservationForm1" style="display: none;">
               <h4>Reserveer Stoelen</h4>
               <div id="seats1">
-                <!-- Stoelknoppen worden hier weergegeven -->
               </div>
               <button type="submit" class="btn btn-success">Bevestigen</button>
             </form>
           </div>
         </div>
       </div>
-      <!-- Voeg meer zaal kaarten toe -->
     </div>
   </div>
 
@@ -29,14 +27,9 @@
     <p>&copy; 2024 Cinema Home</p>
   </footer>
 
-  <!-- Bootstrap JS en afhankelijkheden -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <!-- JavaScript code -->
   <script>
-    // Functie om het formulier voor het reserveren van stoelen te tonen
     function showReservationForm(roomId) {
       var form = document.getElementById("reservationForm" + roomId);
       form.style.display = "block";

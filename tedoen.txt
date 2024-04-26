@@ -1,0 +1,2 @@
+1- login met hash
+2- vragen over stoelen  
