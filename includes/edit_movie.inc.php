@@ -4,7 +4,7 @@ require './private/conn.php';
 // Initialize $selected_pegi_contents as an empty array
 $selected_pegi_contents = [];
 
-$id = $_GET['film_id'] ?? null; // Using null coalescing operator to avoid undefined index notice
+$id = $_GET['film_id'] ?? null; 
 if($id) {
     $query = 'SELECT * FROM films WHERE film_id = :id';
     $statement = $dbh->prepare($query);
@@ -13,7 +13,7 @@ if($id) {
     $result = $statement->fetch(PDO::FETCH_ASSOC);
 
     if($result) {
-        // Now that $result is fetched, you can safely access $result['film_id'] and other properties
+        
         $film_id = $result['film_id'];
         $query = 'SELECT genre_id FROM film_genre WHERE film_id = :film_id';
         $statement = $dbh->prepare($query);
@@ -27,7 +27,7 @@ if($id) {
         $statement->execute();
         $selected_pegis = $statement->fetchAll(PDO::FETCH_COLUMN);
 
-        // Fetch selected PEGI content IDs
+        
         $query_pegi_content = 'SELECT pegi_content_id FROM film_content_pegi WHERE film_id = :film_id';
         $statement = $dbh->prepare($query_pegi_content);
         $statement->bindParam(':film_id', $film_id);
@@ -35,7 +35,7 @@ if($id) {
         $selected_pegi_contents = $statement->fetchAll(PDO::FETCH_COLUMN);
     } else {
         echo "Film not found";
-        // Handle the case where no film is found
+        
     }
 } else {
     echo "No film ID provided";
