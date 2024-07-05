@@ -26,22 +26,21 @@ if (isset($_POST['register']))
 
         // Get the role ID for 'user' from the 'role' table
         $userRoleQuery = "SELECT role_id FROM role WHERE role_name = 'user'";
-        $userRoleStmt = $PDO->prepare($userRoleQuery);
+        $userRoleStmt = $dbh->prepare($userRoleQuery);
         $userRoleStmt->execute();
         $userRoleID = $userRoleStmt->fetchColumn();
 
         // Insert user with the default 'user' role
         $sql = "INSERT INTO users (first_name, last_name, email, password, birth_date, role_id) VALUES (:first_name, :last_name, :email, :password, :birth_date, :role_id)";
-        $stmt = $PDO->prepare($sql);
-        $data =
-            [
-                ':first_name' => $firstname,
-                ':last_name' => $lastname,
-                ':email' => $email,
-                ':password' => $hashedPassword,
-                ':birth_date' => $birth_date,
-                ':role_id' => $userRoleID,
-            ];
+        $stmt = $dbh->prepare($sql);
+        $data = [
+            ':first_name' => $firstname,
+            ':last_name' => $lastname,
+            ':email' => $email,
+            ':password' => $hashedPassword,
+            ':birth_date' => $birth_date,
+            ':role_id' => $userRoleID,
+        ];
         $stmt->execute($data);
 
         header('Location: ../index.php?page=login');
@@ -49,7 +48,7 @@ if (isset($_POST['register']))
     } else
     {
         $_SESSION['melding'] = "Password and Confirm Password do not match, or do not meet the specified criteria, or the birth date is not greater than 16 years. Please try again.";
-        header('Location: ../index.php?page=login');
+        header('Location: ../index.php?page=signup');
         exit();
     }
 }
